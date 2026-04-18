@@ -33,37 +33,40 @@
             <div class="form-body">
 
                 <div class="field-group">
-                    <label for="txtSueldoBase">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                        Salario Base
-                    </label>
-                    <div class="input-wrapper">
-                        <span class="input-prefix">$</span>
-                        <input type="text" id="txtSueldoBase" placeholder="0.00">
-                    </div>
-                </div>
+    <label for="txtSueldoBase">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Salario Base
+    </label>
+    <div class="input-wrapper">
+        <span class="input-prefix">$</span>
+        <input type="text" id="txtSueldoBase" placeholder="0.00" onblur="validarSueldoBase()">
+    </div>
+    <span class="error-msg" id="errSueldoBase"></span>
+</div>
 
                 <div class="field-group">
-                    <label for="txtVentas">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                        Número de Ventas
-                    </label>
-                    <div class="input-wrapper">
-                        <span class="input-prefix">#</span>
-                        <input type="text" id="txtVentas" placeholder="0">
-                    </div>
-                </div>
+    <label for="txtVentas">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Número de Ventas
+    </label>
+    <div class="input-wrapper">
+        <span class="input-prefix">#</span>
+        <input type="text" id="txtVentas" placeholder="0" onblur="validarVentas()">
+    </div>
+    <span class="error-msg" id="errVentas"></span>
+</div>
 
                 <div class="field-group">
-                    <label for="txtPrecio">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                        Precio del Producto
-                    </label>
-                    <div class="input-wrapper">
-                        <span class="input-prefix">$</span>
-                        <input type="text" id="txtPrecio" placeholder="0.00">
-                    </div>
-                </div>
+    <label for="txtPrecio">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        Precio del Producto
+    </label>
+    <div class="input-wrapper">
+        <span class="input-prefix">$</span>
+        <input type="text" id="txtPrecio" placeholder="0.00" onblur="validarPrecio()">
+    </div>
+    <span class="error-msg" id="errPrecio"></span>
+</div>
 
                 <button onclick="calcular()">
                     <span class="btn-text">Calcular Comisión</span>
