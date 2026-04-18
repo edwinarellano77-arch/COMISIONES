@@ -2,32 +2,123 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Comisiones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="ventas.css">
     <script src="ventas.js"></script>
+    <script src="utilitarion.js"></script>
 </head>
 <body>
 
-    <div class="contenedor">
-        <h1>Calculadora de Comisiones</h1>
+    <div class="app-shell">
 
-        <label>Salario Base:</label>
-        <input type="text" id="txtSueldoBase">
+        <!-- LADO IZQUIERDO: FORMULARIO -->
+        <div class="panel panel-form">
 
-        <label>Número de ventas:</label>
-        <input type="text" id="txtVentas">
+            <div class="brand">
+                <div class="brand-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <span class="brand-name">ComisiónPro</span>
+            </div>
 
-        <label>Precio del producto:</label>
-        <input type="text" id="txtPrecio">
+            <div class="form-header">
+                <h1>Calculadora<br><span class="accent-text">de Comisiones</span></h1>
+                <p class="subtitle">Ingresa los datos para calcular tu comisión y sueldo total.</p>
+            </div>
 
-        <button onclick="calcular()">Calcular Comisión</button>
+            <div class="form-body">
 
-        <h2>Resultados</h2>
-        <p>Salario Base: <span id="spSueldoBase"></span></p>
-        <p>Comisión: <span id="spComision"></span></p>
-        <p>Total: <span id="spTotal"></span></p>
+                <div class="field-group">
+                    <label for="txtSueldoBase">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        Salario Base
+                    </label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">$</span>
+                        <input type="text" id="txtSueldoBase" placeholder="0.00">
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="txtVentas">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        Número de Ventas
+                    </label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">#</span>
+                        <input type="text" id="txtVentas" placeholder="0">
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="txtPrecio">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                        Precio del Producto
+                    </label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">$</span>
+                        <input type="text" id="txtPrecio" placeholder="0.00">
+                    </div>
+                </div>
+
+                <button onclick="calcular()">
+                    <span class="btn-text">Calcular Comisión</span>
+                    <span class="btn-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </span>
+                </button>
+
+                <p class="note">La comisión se aplica a ventas que superen las 5 unidades base.</p>
+
+            </div>
+        </div>
+
+        <!-- LADO DERECHO: RESULTADOS -->
+        <div class="panel panel-results">
+
+            <div class="results-header">
+                <h2>Resultados</h2>
+            </div>
+
+            <div class="results-grid">
+
+                <div class="result-card">
+                    <div class="result-card-icon base">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <div class="result-card-info">
+                        <span class="result-label">Salario Base</span>
+                        <span class="result-value" id="spSueldoBase">—</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-card-icon comision">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="result-card-info">
+                        <span class="result-label">Comisión Ganada</span>
+                        <span class="result-value" id="spComision">—</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="result-total">
+                <div class="total-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    Sueldo Total
+                </div>
+                <div class="total-value" id="spTotal">—</div>
+            </div>
+
+        </div>
+
     </div>
 
-    
 </body>
 </html>

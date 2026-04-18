@@ -13,19 +13,19 @@ function calcularComision(numeroVentas,precioProducto){
 
 function calcular(){
     // RECUPERA TEXTO DE CAJA DE TEXTO Y SE GUARDA EN VARIABLE COMPONENTE.
-    let componenteSueldoBase = document.getElementById("txtSueldoBase");
-    let componenteVentas = document.getElementById("txtVentas");
-    let componentePrecio = document.getElementById("txtPrecio");
+    //let componenteSueldoBase = document.getElementById("txtSueldoBase");ESTE PASO SE SUPRIME CON LA FUNCION RECUPERAR TEXTO.
+   
+    
  
     // RECUPERA VALOR CAJAS DE TEXTO Y SE GUARDA EN VARIABLE STR.
-    let sueldoBaseStr = componenteSueldoBase.value;
-    let numeroVentasStr = componenteVentas.value;
-    let precioProductoStr = componentePrecio.value;
+    //let sueldoBaseStr = componenteSueldoBase.value;
+    //let sueldoBaseStr = recuperarTexto("txtSueldoBase");
+    
 
     //CONVIERTE TEXTO A NUMERO
-    let sueldoBase = parseFloat(sueldoBaseStr);
-    let numeroVentas = parseFloat(numeroVentasStr);
-    let precioProducto = parseFloat(precioProductoStr);
+    let sueldoBase = recuperarFloat("txtSueldoBase");
+    let numeroVentas = recuperarFloat("txtVentas");
+    let precioProducto = recuperarFloat("txtPrecio");
 
     // INVOCA FUNCION CALCULAR COMISION//RECIVE 2 VARIABLES Y RETORNA COMISION
     let comision = calcularComision(numeroVentas,precioProducto);
@@ -43,5 +43,5 @@ function calcular(){
     spComision.textContent = comision;
     spTotal.textContent = total;
 
-    
+
 }
